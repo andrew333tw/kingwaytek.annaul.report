@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>勤崴國際 2024 互動年報</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- 鎖版：Chart.js v4.4.2 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js" defer></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+  <nav class="main-nav">
+    <strong>勤崴國際 2024 Report</strong>
+    <div class="nav-links">
+      <a href="#dashboard">Dashboard</a>
+      <a href="#business">事業群</a>
+      <a href="#policy">政策對應</a>
+      <a href="#agenda">策略 × 決策</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- 核心儀表板 -->
+    <section id="dashboard" class="section">
+      <h2>Financial / Operational Dashboard</h2>
+      <div class="kpi-grid" id="kpi-grid"></div>
+
+      <div class="dashboard-main">
+        <div class="card"><canvas id="businessDonut"></canvas></div>
+        <div class="card" id="donutDetail">點圖表查看各事業群重點</div>
+      </div>
+
+      <!-- ✅ 你的需求1：112/113 詳細財務數字下拉 -->
+      <details class="kpi-details" id="kpiDetails">
+        <summary>展開 112 與 113 年詳細財務數字</summary>
+        <div class="kpi-table-wrap">
+          <table class="kpi-table" id="kpiTable"></table>
+        </div>
+      </details>
+
+      <!-- ✅ 你的需求2：圓環圖 legend 直接顯示 -->
+      <div id="businessLegend" class="business-legend"></div>
+    </section>
+
+    <!-- ✅ 你的需求3/4：三大生態圈 Tab + 共用輸出框 -->
+    <section id="business" class="section">
+      <h2>114 年三大生態圈作戰計畫</h2>
+      <div class="ecosystem-tabs">
+        <button class="ecosys-tab" data-key="nav_cvx">1 導航車聯網（核心獲利）</button>
+        <button class="ecosys-tab" data-key="fleet">2 商車管理（新興成長）</button>
+        <button class="ecosys-tab" data-key="av">3 自駕營運（策略佈局）</button>
+      </div>
+      <div id="ecosystemOutput" class="ecosystem-output"></div>
+    </section>
+
+    <section id="policy" class="section">
+      <h2>政策對應（Policy Fit）</h2>
+      <div class="timeline" id="policyTimeline"></div>
+    </section>
+
+    <!-- ✅ 你的需求5：策略亮點 × 關鍵決策議程（合併） -->
+    <section id="agenda" class="section">
+      <h2>策略亮點 × 關鍵決策議程</h2>
+      <div class="combined-grid" id="agendaGrid"></div>
+    </section>
+  </main>
+
+  <!-- 共用 Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">×</button>
+      <h3 id="modalTitle"></h3>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+</body>
+</html>
