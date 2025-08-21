@@ -1,0 +1,21 @@
+name: pages
+on:
+  push: { branches: [main] }
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "No build step for static site"
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: '.' }
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    permissions: { pages: write, id-token: write }
+    runs-on: ubuntu-latest
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
